@@ -3,7 +3,7 @@ import time
 import random
 from thymiodirect import Connection 
 from thymiodirect import Thymio
-portvar = 30166                    #set port to 1234 if not using in simulation
+portvar = 26442                    #set port to 1234 if not using in simulation
 
 def main(use_sim=False, ip='127.0.0.1', port=portvar):
     ''' Main function '''
@@ -83,7 +83,7 @@ def main(use_sim=False, ip='127.0.0.1', port=portvar):
             # Handle the follow state
             elif state == 'follow':
                 # TODO
-                if robot['prox.horizontal'] [2] >= 4450:
+                if robot['prox.horizontal'] [2] >= 4200:
                     state = 'avoid'
                 elif robot['prox.ground.reflected'] [0] < 800 and robot['prox.ground.reflected'] [1] >= 800:
                     robot['motor.left.target'] = 200

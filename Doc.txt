@@ -1,0 +1,31 @@
+Documentation Linefolloew
+
+State stop:
+	Alle Mototren ausschalten
+
+State explore:
+	Wenn kein Hinderniss erkannt wird:
+		Geradeaus fahren
+		Wenn eine Linie gefunden wird:
+			State follow
+	sonst stehenbleiben und für eine zufällige zeit drehen
+
+State follow:
+	Wenn etwas nah ist:
+		State avoid
+	Wenn nur der rechte Sensor die Linie erkennt:
+		Nach Rechts fahren
+	Wenn nur der linke Sensor die Linie erkennt:
+		Nach Links fahren
+	Wenn beide Sensoren die Linie sehen:
+		Geradeaus fahren
+	Wenn beide Sensoren die Linie nicht sehen:
+		Für 5 Sekunden Geradeaus fahren (für die unterbrechung in der mitte)
+		Wenn beide Sensoren die Linie nicht sehen:
+			State explore
+
+State avoid:
+	Stehenbleiben
+
+Fehler:
+	Wenn im follow, dann erkennt er die Wand als Hinderniss und der Wert des Sensors ist unerwartet hoch (siehe Video)
